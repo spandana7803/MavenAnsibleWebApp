@@ -1,6 +1,8 @@
+---
 - name: Deploy to Tomcat
   hosts: web
   become: yes
+
   tasks:
     - name: Copy WAR file to Tomcat
       copy:
@@ -9,7 +11,7 @@
         remote_src: no
 
     - name: Restart Tomcat
-  shell: |
-    /opt/tomcat/bin/shutdown.sh
-    sleep 5
-    /opt/tomcat/bin/startup.sh
+      shell: |
+        /opt/tomcat/bin/shutdown.sh
+        sleep 5
+        /opt/tomcat/bin/startup.sh
